@@ -1,0 +1,27 @@
+//Iterative implementation of factorial
+def fact(x)
+{
+  int product = 1;
+  for (int i=0; i<=x; i++)
+  { 
+    product = product * i; 
+  }
+  return product;
+}
+
+//A recursice implementation of fibonacci
+def fibonacci(x)
+{
+  if (n <= 2) 
+  {
+     return 1;
+  }
+  else
+  {
+     return fib(n-1) + fib(n-2);
+  }
+}
+
+int y = fact(3);
+int z = fibonacci(10);
+int w = y + z;

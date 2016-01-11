@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="CPP_MODULE" version="4">
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTBinaryExprNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTExprNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/CPS2000-LLVM_Project.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTFuncPrototypeNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Parser.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTNumberExprNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTFuncPrototypeNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTCallExprNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTVariableExprNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTNumberExprNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Lexer.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTBinaryExprNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTFunctionNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTFunctionNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Parser.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/Lexer.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTVariableExprNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTExprNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTCallExprNode.h" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/CMakeLists.txt" isTestSource="false" />
+    </content>
+    <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="module-library">
+      <library name="Header Search Paths">
+        <CLASSES>
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include-fixed" />
+          <root url="file:///usr/lib/gcc/x86_64-linux-gnu/4.8/include" />
+          <root url="file:///usr/include" />
+          <root url="file:///usr/local/include" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+  </component>
+</module>
