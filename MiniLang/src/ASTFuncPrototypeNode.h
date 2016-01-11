@@ -20,7 +20,7 @@ public:
 
 	std::string Name;
 	std::vector<std::string> Args;
-	virtual void PrintInfo() override;
+	virtual void PrintInfo(int p_level) override;
 };
 
 #endif /* ASTFUNCPROTOTYPENODE_H_ */

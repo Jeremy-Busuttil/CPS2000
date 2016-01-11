@@ -16,7 +16,7 @@ public:
 	virtual ~ASTNumberExprNode();
 
 	float Value;
-	virtual void PrintInfo() override;
+	virtual void PrintInfo(int p_level) override;
 };
 
 #endif /* ASTNUMBEREXPRNODE_H_ */

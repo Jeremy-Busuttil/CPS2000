@@ -15,6 +15,8 @@ ASTNumberExprNode::~ASTNumberExprNode() {
 	// TODO Auto-generated destructor stub
 }
 
-void ASTNumberExprNode::PrintInfo() {
-	std::cout << "ASTNumberExprNode [" << std::to_string(Value) << "]" << std::endl;
+void ASTNumberExprNode::PrintInfo(int p_level) {
+	std::string tabs = "";
+	for (int t = 0; t<p_level; t++) tabs.append("\t");
+	std::cout << tabs << "ASTNumberExprNode [" << std::to_string(Value) << "]" << std::endl;
 }

@@ -19,7 +19,7 @@ ASTFunctionNode::~ASTFunctionNode() {
 	// TODO Auto-generated destructor stub
 }
 
-void ASTFunctionNode::PrintInfo() {
+void ASTFunctionNode::PrintInfo(int p_level) {
 	std::cout << "ASTFuncPrototypeNode" << std::endl;
 }
 

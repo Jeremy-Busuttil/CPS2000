@@ -19,7 +19,7 @@ ASTCallExprNode::~ASTCallExprNode() {
 	// TODO Auto-generated destructor stub
 }
 
-void ASTCallExprNode::PrintInfo() {
+void ASTCallExprNode::PrintInfo(int p_level) {
 	std::cout << "ASTCallExprNode " << FunctionName << std::endl;
 }
 

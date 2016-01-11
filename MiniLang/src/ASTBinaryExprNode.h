@@ -19,7 +19,7 @@ public:
 	char Op;
 	std::unique_ptr<ASTExprNode> LHS, RHS;
 
-	virtual void PrintInfo() override;
+	virtual void PrintInfo(int p_level) override;
 };
 
 #endif /* ASTBINARYEXPRNODE_H_ */

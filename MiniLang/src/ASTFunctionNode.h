@@ -20,7 +20,7 @@ public:
 	std::unique_ptr<ASTFuncPrototypeNode> Prototype;
 	std::unique_ptr<ASTExprNode> Body;
 
-	virtual void PrintInfo() override;
+	virtual void PrintInfo(int p_level) override;
 };
 
 #endif /* ASTFUNCTIONNODE_H_ */

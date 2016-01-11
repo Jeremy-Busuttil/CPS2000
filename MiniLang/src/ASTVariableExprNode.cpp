@@ -16,7 +16,7 @@ ASTVariableExprNode::~ASTVariableExprNode() {
 	// TODO Auto-generated destructor stub
 }
 
-void ASTVariableExprNode::PrintInfo() {
+void ASTVariableExprNode::PrintInfo(int p_level) {
 	std::cout << "ASTVariableExprNode [" << Name << "]" <<std::endl;
 }
 

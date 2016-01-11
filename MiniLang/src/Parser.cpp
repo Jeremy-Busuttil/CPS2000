@@ -10,7 +10,7 @@
 Parser::Parser(Lexer p_lexer) : Lex(p_lexer) {
 	// TODO Auto-generated constructor stub
 	auto ASTTree = Parse();
-	ASTTree->PrintInfo();
+	ASTTree->PrintInfo(0);
 }
 
 Parser::~Parser() {
@@ -169,10 +169,81 @@ std::unique_ptr<ASTExprNode> Parser::ParseExpression()
 	return ParseBinaryExpr(0, std::move(LHS));
 }
 
+std::unique_ptr<ASTExprNode> Parser::ParseFunctionPrototype() {
+	CurrentToken = Lex.GetToken();
+	if (CurrentToken.token_type != Lexer::TOK_ID) {
+		Error("Expecting function name");
+		return nullptr;
+	}
+
+	std::string functionName = CurrentToken.id_name;
+	auto functionParameters = std::vector<std::string>();
+
+	CurrentToken = Lex.GetToken();
+	if (CurrentToken.token_type != Lexer::TOK_PUNC) {
+		if (CurrentToken.id_name.compare("(") == 0)
+		{
+			CurrentToken = Lex.GetToken();
+			while (CurrentToken.token_type != Lexer::TOK_PUNC)
+			{
+				if (CurrentToken.token_type == Lexer::TOK_ID)
+				{
+					functionParameters.push_back(CurrentToken.id_name);
+					CurrentToken = Lex.GetToken();
+					if (CurrentToken.token_type == Lexer::TOK_PUNC)
+					{
+						if (CurrentToken.id_name.compare(",") == 0)
+						{
+							CurrentToken = Lex.GetToken();
+						}
+						else
+						{
+							std::string errorMsg = "Expecting , between parameter variables of function ";
+							errorMsg.append(functionName);
+							Error(errorMsg.c_str());
+							return nullptr;
+						}
+					}
+				}
+				else
+				{
+					std::string errorMsg = "Expecting function parameter variables after function ";
+					errorMsg.append(functionName);
+					Error(errorMsg.c_str());
+					return nullptr;
+				}
+			}
+			if (CurrentToken.id_name.compare(")"))
+			{
+				//Create and return a function prototype AST node
+				return make_unique<ASTFuncPrototypeNode>(functionName.c_str(), functionParameters);
+			}
+		}
+	}
+
+	std::string errorMsg = "Expecting ( after function name ";
+	errorMsg.append(functionName);
+	Error(errorMsg.c_str());
+	return nullptr;
+}
+
+std::unique_ptr<ASTExprNode> Parser::ParseFunctionBody()
+{
+
+	return nullptr;
+}
+
 std::unique_ptr<ASTExprNode> Parser::ParseFunctionDefinition()
 {
 	CurrentToken = Lex.GetToken();
-	return nullptr;
+	auto prototype_node = ParseFunctionPrototype();
+	if (!prototype_node)
+		return nullptr;
+
+	auto functionBody_node = ParseFunctionBody();
+
+
+	return make_unique<ASTFunctionNode>(std::move(prototype_node), std::move(functionBody_node));
 }
 
 std::unique_ptr<ASTExprNode> Parser::Parse()
@@ -190,7 +261,7 @@ std::unique_ptr<ASTExprNode> Parser::Parse()
 			break;
 		default:
 			auto p = ParseExpression();
-			p->PrintInfo();
+				p->PrintInfo(0);
 			break;
 		}
 	}

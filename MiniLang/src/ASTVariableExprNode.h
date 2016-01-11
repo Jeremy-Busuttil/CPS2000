@@ -18,7 +18,7 @@ public:
 
 
 	std::string Name;
-	virtual void PrintInfo() override;
+	virtual void PrintInfo(int p_level) override;
 };
 
 #endif /* ASTVARIABLEEXPRNODE_H_ */

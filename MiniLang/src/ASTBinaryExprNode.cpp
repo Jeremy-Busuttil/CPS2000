@@ -19,11 +19,12 @@ ASTBinaryExprNode::~ASTBinaryExprNode() {
 	// TODO Auto-generated destructor stub
 }
 
-void ASTBinaryExprNode::PrintInfo() {
-	std::cout << "ASTBinaryExprNode LHS=";
-	LHS->PrintInfo();
-	std::cout << "RHS=" << std::endl;
-	RHS->PrintInfo();
+void ASTBinaryExprNode::PrintInfo(int p_level) {
+	std::string tabs = "";
+	for (int t = 0; t<p_level; t++) tabs.append("\t");
+	std::cout << tabs << "ASTBinaryExprNode [" << Op << "]" << std::endl;
+	LHS->PrintInfo(p_level+1);
+	RHS->PrintInfo(p_level+1);
 }
 
 

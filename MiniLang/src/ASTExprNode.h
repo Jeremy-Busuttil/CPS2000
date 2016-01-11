@@ -15,7 +15,7 @@ public:
 	ASTExprNode();
 	virtual ~ASTExprNode();
 
-	virtual void PrintInfo() override;
+	virtual void PrintInfo(int p_level) override;
 };
 
 #endif /* ASTEXPRNODE_H_ */

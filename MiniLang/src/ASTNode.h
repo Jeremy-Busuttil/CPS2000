@@ -19,7 +19,7 @@ public:
 
 	void Initialise();
 
-	virtual void PrintInfo();
+	virtual void PrintInfo(int p_level);
 };
 
 #endif /* ASTNODE_H_ */
