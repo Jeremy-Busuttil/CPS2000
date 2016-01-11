@@ -12,12 +12,21 @@
 #include <vector>
 
 #include "Lexer.h"
+//AST Expression Nodes
 #include "ASTExprNode.h"
 #include "ASTNumberExprNode.h"
 #include "ASTVariableExprNode.h"
 #include "ASTCallExprNode.h"
 #include "ASTBinaryExprNode.h"
+
+//AST Statement Nodes
+#include "ASTStatementNode.h"
+#include "ASTIfStatementNode.h"
+#include "ASTAssignmentStatementNode.h"
+
+//AST Function Nodes
 #include "ASTFunctionNode.h"
+#include "ASTFuncPrototypeNode.h"
 
 // Cloning make_unique here until it's standard in C++14.
 template <class T, class... Args>
@@ -43,9 +52,13 @@ private:
 	std::unique_ptr<ASTExprNode> ParseUnaryExpr();
 	std::unique_ptr<ASTExprNode> ParseBinaryExpr(int p_Precedence, std::unique_ptr<ASTExprNode> p_LHS);
 	std::unique_ptr<ASTExprNode> ParseExpression();
-	std::unique_ptr<ASTExprNode> ParseFunctionPrototype();
-	std::unique_ptr<ASTExprNode> ParseFunctionBody();
-	std::unique_ptr<ASTExprNode> ParseFunctionDefinition();
+
+	std::unique_ptr<ASTIfStatementNode> ParseIfStatement();
+	std::unique_ptr<ASTAssignmentStatementNode> ParseAssignmentStatement();
+
+	std::unique_ptr<ASTFuncPrototypeNode> ParseFunctionPrototype();
+	std::unique_ptr<ASTStatementNode> ParseFunctionBody();
+	std::unique_ptr<ASTFunctionNode> ParseFunctionDefinition();
 
 	std::unique_ptr<ASTExprNode> Parse();
 };

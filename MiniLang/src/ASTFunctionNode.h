@@ -10,15 +10,15 @@
 
 #include <memory>
 #include "ASTFuncPrototypeNode.h"
-#include "ASTExprNode.h"
+#include "ASTStatementNode.h"
 
-class ASTFunctionNode : ASTNode{
+class ASTFunctionNode : ASTNode {
 public:
-	ASTFunctionNode(std::unique_ptr<ASTFuncPrototypeNode> p_Prototype, std::unique_ptr<ASTExprNode> p_Body);
+	ASTFunctionNode(std::unique_ptr<ASTFuncPrototypeNode> p_Prototype, std::unique_ptr<ASTStatementNode> p_Body);
 	virtual ~ASTFunctionNode();
 
 	std::unique_ptr<ASTFuncPrototypeNode> Prototype;
-	std::unique_ptr<ASTExprNode> Body;
+	std::unique_ptr<ASTStatementNode> Body;
 
 	virtual void PrintInfo(int p_level) override;
 };

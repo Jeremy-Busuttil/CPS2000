@@ -169,7 +169,10 @@ std::unique_ptr<ASTExprNode> Parser::ParseExpression()
 	return ParseBinaryExpr(0, std::move(LHS));
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseFunctionPrototype() {
+
+
+
+std::unique_ptr<ASTFuncPrototypeNode> Parser::ParseFunctionPrototype() {
 	CurrentToken = Lex.GetToken();
 	if (CurrentToken.token_type != Lexer::TOK_ID) {
 		Error("Expecting function name");
@@ -227,13 +230,13 @@ std::unique_ptr<ASTExprNode> Parser::ParseFunctionPrototype() {
 	return nullptr;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseFunctionBody()
+std::unique_ptr<ASTStatementNode> Parser::ParseFunctionBody()
 {
 
 	return nullptr;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseFunctionDefinition()
+std::unique_ptr<ASTFunctionNode> Parser::ParseFunctionDefinition()
 {
 	CurrentToken = Lex.GetToken();
 	auto prototype_node = ParseFunctionPrototype();
@@ -241,7 +244,6 @@ std::unique_ptr<ASTExprNode> Parser::ParseFunctionDefinition()
 		return nullptr;
 
 	auto functionBody_node = ParseFunctionBody();
-
 
 	return make_unique<ASTFunctionNode>(std::move(prototype_node), std::move(functionBody_node));
 }

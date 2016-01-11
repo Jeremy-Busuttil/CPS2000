@@ -24,6 +24,8 @@ set(SOURCE_FILES
         src/Lexer.cpp
         src/Lexer.h
         src/Parser.cpp
-        src/Parser.h)
+        src/Parser.h
+        src/ASTStatementNode.cpp
+        src/ASTStatementNode.h src/ASTIfStatementNode.cpp src/ASTIfStatementNode.h src/ASTAssignmentStatementNode.cpp src/ASTAssignmentStatementNode.h)
 
 add_executable(CPS2000_MiniLang ${SOURCE_FILES})
