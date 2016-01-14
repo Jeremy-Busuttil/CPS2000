@@ -259,12 +259,14 @@ std::unique_ptr<ASTExprNode> Parser::Parse()
 		switch(CurrentToken.token_type)
 		{
 		case Lexer::TOK_DEF:
-			ParseFunctionDefinition();
-			break;
-		default:
-			auto p = ParseExpression();
+			auto p = ParseFunctionDefinition();
 				p->PrintInfo(0);
 			break;
+		default:
+			auto pe = ParseExpression();
+				pe->PrintInfo(0);
+			break;
+
 		}
 	}
 	std::cout << "\n[Parser] Finish" << std::endl;
