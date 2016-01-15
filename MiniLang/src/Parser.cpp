@@ -169,8 +169,30 @@ std::unique_ptr<ASTExprNode> Parser::ParseExpression()
 	return ParseBinaryExpr(0, std::move(LHS));
 }
 
+std::unique_ptr<ASTStatementNode> Parser::ParseIfStatement()
+{
+	auto node = make_unique<ASTIfStatementNode>();
+	CurrentToken = Lex.GetToken();
+	//return std::move(node);
+	return nullptr;
+}
 
+std::unique_ptr<ASTStatementNode> Parser::ParseAssignmentStatement()
+{
+	std::string var_name = CurrentToken.id_name;
+	CurrentToken = Lex.GetToken();
+	if (CurrentToken.token_type != Lexer::TOK_ASSIGNOP)
+	{
+		Error("Expecting ':=' while parsing an assignment statement");
+		return nullptr;
+	}
+	CurrentToken = Lex.GetToken();
+	auto expr_node = ParseExpression();
+	auto ass_node = make_unique<ASTAssignmentStatementNode>(var_name.c_str(), std::move(expr_node));
 
+	//return std::move(ass_node);
+	//return nullptr;
+}
 
 std::unique_ptr<ASTFuncPrototypeNode> Parser::ParseFunctionPrototype() {
 	CurrentToken = Lex.GetToken();
@@ -232,8 +254,9 @@ std::unique_ptr<ASTFuncPrototypeNode> Parser::ParseFunctionPrototype() {
 
 std::unique_ptr<ASTStatementNode> Parser::ParseFunctionBody()
 {
-
-	return nullptr;
+	//std::unique_ptr<ASTStatementNode> statement_node;
+	auto statement_node = ParseAssignmentStatement();
+	return statement_node;
 }
 
 std::unique_ptr<ASTFunctionNode> Parser::ParseFunctionDefinition()
@@ -259,8 +282,8 @@ std::unique_ptr<ASTExprNode> Parser::Parse()
 		switch(CurrentToken.token_type)
 		{
 		case Lexer::TOK_DEF:
-			auto p = ParseFunctionDefinition();
-				p->PrintInfo(0);
+//			auto p = ParseFunctionDefinition();
+//				p->PrintInfo(0);
 			break;
 		default:
 			auto pe = ParseExpression();
@@ -272,7 +295,3 @@ std::unique_ptr<ASTExprNode> Parser::Parse()
 	std::cout << "\n[Parser] Finish" << std::endl;
 	return nullptr;
 }
-
-
-
-

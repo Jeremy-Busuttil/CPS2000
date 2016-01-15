@@ -16,6 +16,7 @@
 class ASTFuncPrototypeNode : public ASTNode {
 public:
 	ASTFuncPrototypeNode(const std::string &p_Name, std::vector<std::string> p_Args);
+
 	virtual ~ASTFuncPrototypeNode();
 
 	std::string Name;

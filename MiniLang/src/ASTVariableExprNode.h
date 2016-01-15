@@ -16,8 +16,9 @@ public:
 	ASTVariableExprNode(const std::string &Name);
 	virtual ~ASTVariableExprNode();
 
-
 	std::string Name;
+
+	virtual llvm::Value * CodeGen();
 	virtual void PrintInfo(int p_level) override;
 };
 

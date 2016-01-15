@@ -4,8 +4,10 @@
 
 #include "ASTAssignmentStatementNode.h"
 
-ASTAssignmentStatementNode::ASTAssignmentStatementNode() {
-    // TODO Auto-generated constructor stub
+ASTAssignmentStatementNode::ASTAssignmentStatementNode(const std::string &Name, std::unique_ptr<ASTExprNode> p_RHS)
+        : LHS(Name), RHS(std::move(p_RHS))
+{
+
 }
 
 ASTAssignmentStatementNode::~ASTAssignmentStatementNode() {

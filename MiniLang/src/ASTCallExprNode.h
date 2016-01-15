@@ -21,6 +21,8 @@ public:
 
 	std::string FunctionName;
 	std::vector<std::unique_ptr<ASTExprNode>> Args;
+
+	virtual llvm::Value * CodeGen();
 	virtual void PrintInfo(int p_level) override;
 };
 

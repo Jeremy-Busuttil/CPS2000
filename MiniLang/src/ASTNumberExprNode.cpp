@@ -7,7 +7,7 @@
 
 #include "ASTNumberExprNode.h"
 
-ASTNumberExprNode::ASTNumberExprNode(float p_Value) : Value(p_Value) {
+ASTNumberExprNode::ASTNumberExprNode(float p_Value) : numberValue(p_Value) {
 	// TODO Auto-generated constructor stub
 }
 
@@ -18,5 +18,9 @@ ASTNumberExprNode::~ASTNumberExprNode() {
 void ASTNumberExprNode::PrintInfo(int p_level) {
 	std::string tabs = "";
 	for (int t = 0; t<p_level; t++) tabs.append("\t");
-	std::cout << tabs << "ASTNumberExprNode [" << std::to_string(Value) << "]" << std::endl;
+	std::cout << tabs << "ASTNumberExprNode [" << std::to_string(numberValue) << "]" << std::endl;
+}
+
+llvm::Value *ASTNumberExprNode::CodeGen() {
+	return llvm::ConstantFP::get(llvm::getGlobalContext(), llvm::APFloat(numberValue));
 }

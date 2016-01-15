@@ -23,3 +23,6 @@ void ASTCallExprNode::PrintInfo(int p_level) {
 	std::cout << "ASTCallExprNode " << FunctionName << std::endl;
 }
 
+llvm::Value * ASTCallExprNode::CodeGen() {
+	return nullptr;
+}

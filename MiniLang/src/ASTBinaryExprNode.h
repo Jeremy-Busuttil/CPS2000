@@ -9,7 +9,6 @@
 #define ASTBINARYEXPRNODE_H_
 
 #include "ASTExprNode.h"
-#include <memory>
 
 class ASTBinaryExprNode: public ASTExprNode {
 public:
@@ -19,6 +18,7 @@ public:
 	char Op;
 	std::unique_ptr<ASTExprNode> LHS, RHS;
 
+	virtual llvm::Value * CodeGen();
 	virtual void PrintInfo(int p_level) override;
 };
 

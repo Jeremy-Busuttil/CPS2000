@@ -15,7 +15,9 @@ public:
 	ASTNumberExprNode(float p_Value);
 	virtual ~ASTNumberExprNode();
 
-	float Value;
+	float numberValue;
+
+	virtual llvm::Value * CodeGen();
 	virtual void PrintInfo(int p_level) override;
 };
 

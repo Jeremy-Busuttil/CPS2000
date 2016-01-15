@@ -28,6 +28,9 @@
 #include "ASTFunctionNode.h"
 #include "ASTFuncPrototypeNode.h"
 
+//LLVM includes
+#include "llvm/IR/Module.h"
+
 // Cloning make_unique here until it's standard in C++14.
 template <class T, class... Args>
 static
@@ -53,12 +56,12 @@ private:
 	std::unique_ptr<ASTExprNode> ParseBinaryExpr(int p_Precedence, std::unique_ptr<ASTExprNode> p_LHS);
 	std::unique_ptr<ASTExprNode> ParseExpression();
 
-	std::unique_ptr<ASTIfStatementNode> ParseIfStatement();
-	std::unique_ptr<ASTAssignmentStatementNode> ParseAssignmentStatement();
-
 	std::unique_ptr<ASTFuncPrototypeNode> ParseFunctionPrototype();
 	std::unique_ptr<ASTStatementNode> ParseFunctionBody();
 	std::unique_ptr<ASTFunctionNode> ParseFunctionDefinition();
+
+	std::unique_ptr<ASTStatementNode> ParseIfStatement();
+	std::unique_ptr<ASTStatementNode> ParseAssignmentStatement();
 
 	std::unique_ptr<ASTExprNode> Parse();
 };

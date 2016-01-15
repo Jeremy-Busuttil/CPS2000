@@ -9,8 +9,12 @@
 #define ASTNODE_H_
 
 #include <string>
+#include <memory>
 #include <iostream>
 #include <fstream>
+
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/Value.h"
 
 class ASTNode {
 public:

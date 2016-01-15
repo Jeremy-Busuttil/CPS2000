@@ -15,5 +15,5 @@ ASTIfStatementNode::~ASTIfStatementNode() {
 void ASTIfStatementNode::PrintInfo(int p_level) {
     std::string tabs = "";
     for (int t = 0; t<p_level; t++) tabs.append("\t");
-    std::cout << tabs << "ASTExprNode [ExprBase]" << std::endl;
+    std::cout << tabs << "ASTIfStatementNode C LHS RHS" << std::endl;
 }
