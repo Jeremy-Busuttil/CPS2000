@@ -1,16 +1,15 @@
 cmake_minimum_required(VERSION 3.3)
 project(CPS2000_MiniLang)
 
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y -pthread")
-set(LLVM_INCLUDE_DIRS /usr/lib/llvm-3.7/include/)
+find_package(LLVM REQUIRED CONFIG)
 
-set(LLVM_LINK_DIRS /usr/lib/llvm-3.7/lib/)
+message(STATUS "Found LLVM ${LLVM_PACKAGE_VERSION}")
+message(STATUS "Using LLVMConfig.cmake in: ${LLVM_DIR}")
+
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++1y")
 
 include_directories(${LLVM_INCLUDE_DIRS})
-link_directories(${LLVM_LINK_DIRS})
-
-link_libraries(libLLVMCore.a libLLVMCodeGen.a libLLVMAnalysis.a libLLVMOption.a libLLVMSupport.a libLLVMObject.a libLLVMSelectionDAG.a libLLVMMC.a libLLVMTarget.a
-                libLLVMBitReader.a libLLVMBitWriter.a)
+add_definitions(${LLVM_DEFINITIONS})
 
 set(SOURCE_FILES
         src/ASTNode.cpp
@@ -42,3 +41,10 @@ set(SOURCE_FILES
         src/Parser.h)
 
 add_executable(CPS2000_MiniLang ${SOURCE_FILES})
+
+# Find the libraries that correspond to the LLVM components
+# that we wish to use
+llvm_map_components_to_libnames(llvm_libs support core irreader)
+
+# Link against LLVM libraries
+target_link_libraries(CPS2000_MiniLang ${llvm_libs})
