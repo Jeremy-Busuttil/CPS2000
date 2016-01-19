@@ -9,28 +9,26 @@
 
 Parser::Parser(Lexer p_lexer) : Lex(p_lexer) {
 	// TODO Auto-generated constructor stub
-	auto ASTTree = Parse();
-	ASTTree->PrintInfo(0);
 }
 
 Parser::~Parser() {
 	// TODO Auto-generated destructor stub
 }
 
-std::unique_ptr<ASTExprNode> Parser::Error(const char *p_Str)
+ASTExprNode * Parser::Error(const char *p_Str)
 {
 	std::cout << "Error: " << p_Str << std::endl;
 	return nullptr;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseNumberExpr()
+ASTExprNode * Parser::ParseNumberExpr()
 {
-	auto node = make_unique<ASTNumberExprNode>(CurrentToken.number_value);
+	auto node = new ASTNumberExprNode(CurrentToken.number_value);
 	CurrentToken = Lex.GetToken();
-	return std::move(node);
+	return node;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseParenthesisExpr()
+ASTExprNode * Parser::ParseParenthesisExpr()
 {
 	CurrentToken = Lex.GetToken();
 	auto node = ParseExpression();
@@ -47,13 +45,13 @@ std::unique_ptr<ASTExprNode> Parser::ParseParenthesisExpr()
 	}
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseIdentifierExpr()
+ASTExprNode * Parser::ParseIdentifierExpr()
 {
 	std::string Name = CurrentToken.id_name;
 	CurrentToken = Lex.GetToken();
 	if (CurrentToken.token_type != Lexer::TOK_PUNC)
 	{
-		return make_unique<ASTVariableExprNode>(Name);
+		return new ASTVariableExprNode(Name);
 	}
 	else
 	{
@@ -61,7 +59,8 @@ std::unique_ptr<ASTExprNode> Parser::ParseIdentifierExpr()
 		{
 			CurrentToken = Lex.GetToken();
 			//This is a function call. Start argument parsing.
-			std::vector<std::unique_ptr<ASTExprNode>> args;
+
+			std::vector<ASTExprNode *> args;
 			while (true && CurrentToken.token_type!=Lexer::TOK_EOF)
 			{
 				if (auto arg = ParseExpression())
@@ -93,7 +92,7 @@ std::unique_ptr<ASTExprNode> Parser::ParseIdentifierExpr()
 			}
 
 			CurrentToken = Lex.GetToken();
-			return make_unique<ASTCallExprNode>(Name, std::move(args));
+			return new ASTCallExprNode(Name, args);
 		}
 
 		if (CurrentToken.id_name.compare("[") == 0)
@@ -105,7 +104,7 @@ std::unique_ptr<ASTExprNode> Parser::ParseIdentifierExpr()
 	return nullptr;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseUnaryExpr()
+ASTExprNode * Parser::ParseUnaryExpr()
 {
 	switch (CurrentToken.token_type)
 	{
@@ -122,7 +121,7 @@ std::unique_ptr<ASTExprNode> Parser::ParseUnaryExpr()
 	return nullptr;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseBinaryExpr(int p_Precedence, std::unique_ptr<ASTExprNode> p_LHS)
+ASTExprNode * Parser::ParseBinaryExpr(int p_Precedence, ASTExprNode * p_LHS)
 {
 	while (true)
 	{
@@ -141,12 +140,12 @@ std::unique_ptr<ASTExprNode> Parser::ParseBinaryExpr(int p_Precedence, std::uniq
 
 			if (op_prec < nxt_op_prec)
 			{
-				RHS = ParseBinaryExpr(op_prec+1, std::move(RHS));
+				RHS = ParseBinaryExpr(op_prec+1, RHS);
 				if (!RHS)
 					return nullptr;
 			}
 
-			p_LHS = make_unique<ASTBinaryExprNode>(op_sym[0],std::move(p_LHS), std::move(RHS));
+			p_LHS = new ASTBinaryExprNode(op_sym[0], p_LHS, RHS);
 		}
 		else
 		{
@@ -160,7 +159,7 @@ std::unique_ptr<ASTExprNode> Parser::ParseBinaryExpr(int p_Precedence, std::uniq
 	return nullptr;
 }
 
-std::unique_ptr<ASTExprNode> Parser::ParseExpression()
+ASTExprNode * Parser::ParseExpression()
 {
 	auto LHS = ParseUnaryExpr();
 	if (!LHS)
@@ -169,15 +168,15 @@ std::unique_ptr<ASTExprNode> Parser::ParseExpression()
 	return ParseBinaryExpr(0, std::move(LHS));
 }
 
-std::unique_ptr<ASTStatementNode> Parser::ParseIfStatement()
+ASTStatementNode * Parser::ParseIfStatement()
 {
-	auto node = make_unique<ASTIfStatementNode>();
+	auto node = new ASTIfStatementNode();
 	CurrentToken = Lex.GetToken();
 	//return std::move(node);
-	return nullptr;
+	return node;
 }
 
-std::unique_ptr<ASTStatementNode> Parser::ParseAssignmentStatement()
+ASTStatementNode * Parser::ParseAssignmentStatement()
 {
 	std::string var_name = CurrentToken.id_name;
 	CurrentToken = Lex.GetToken();
@@ -188,13 +187,13 @@ std::unique_ptr<ASTStatementNode> Parser::ParseAssignmentStatement()
 	}
 	CurrentToken = Lex.GetToken();
 	auto expr_node = ParseExpression();
-	auto ass_node = make_unique<ASTAssignmentStatementNode>(var_name.c_str(), std::move(expr_node));
-
+	auto ass_node = new ASTAssignmentStatementNode(var_name.c_str(), expr_node);
+    return ass_node;
 	//return std::move(ass_node);
 	//return nullptr;
 }
 
-std::unique_ptr<ASTFuncPrototypeNode> Parser::ParseFunctionPrototype() {
+ASTFuncPrototypeNode * Parser::ParseFunctionPrototype() {
 	CurrentToken = Lex.GetToken();
 	if (CurrentToken.token_type != Lexer::TOK_ID) {
 		Error("Expecting function name");
@@ -241,7 +240,7 @@ std::unique_ptr<ASTFuncPrototypeNode> Parser::ParseFunctionPrototype() {
 			if (CurrentToken.id_name.compare(")"))
 			{
 				//Create and return a function prototype AST node
-				return make_unique<ASTFuncPrototypeNode>(functionName.c_str(), functionParameters);
+				return new ASTFuncPrototypeNode(functionName.c_str(), functionParameters);
 			}
 		}
 	}
@@ -252,14 +251,14 @@ std::unique_ptr<ASTFuncPrototypeNode> Parser::ParseFunctionPrototype() {
 	return nullptr;
 }
 
-std::unique_ptr<ASTStatementNode> Parser::ParseFunctionBody()
+ASTStatementNode * Parser::ParseFunctionBody()
 {
 	//std::unique_ptr<ASTStatementNode> statement_node;
 	auto statement_node = ParseAssignmentStatement();
 	return statement_node;
 }
 
-std::unique_ptr<ASTFunctionNode> Parser::ParseFunctionDefinition()
+ASTFunctionNode * Parser::ParseFunctionDefinition()
 {
 	CurrentToken = Lex.GetToken();
 	auto prototype_node = ParseFunctionPrototype();
@@ -268,30 +267,28 @@ std::unique_ptr<ASTFunctionNode> Parser::ParseFunctionDefinition()
 
 	auto functionBody_node = ParseFunctionBody();
 
-	return make_unique<ASTFunctionNode>(std::move(prototype_node), std::move(functionBody_node));
+	return new ASTFunctionNode(prototype_node, functionBody_node);
 }
 
-std::unique_ptr<ASTExprNode> Parser::Parse()
+ASTNode * Parser::Parse()
 {
 	std::cout << "[Parser] Start" << std::endl;
+    ASTNode * root;
 	CurrentToken = Lex.GetToken();
 	while (CurrentToken.token_type != Lexer::TOK_EOF)
 	{
-		//std::cout << CurrentToken.ToString() << " ";
-		//CurrentToken = Lex.GetToken();
 		switch(CurrentToken.token_type)
 		{
 		case Lexer::TOK_DEF:
-//			auto p = ParseFunctionDefinition();
-//				p->PrintInfo(0);
+			//auto p = ParseFunctionDefinition();
+				//p->PrintInfo(0);
 			break;
 		default:
-			auto pe = ParseExpression();
-				pe->PrintInfo(0);
+			root = ParseExpression();
 			break;
 
 		}
 	}
-	std::cout << "\n[Parser] Finish" << std::endl;
-	return nullptr;
+	std::cout << "[Parser] Finish" << std::endl;
+	return root;
 }

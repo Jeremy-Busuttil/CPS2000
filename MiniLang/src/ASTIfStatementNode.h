@@ -7,11 +7,12 @@
 
 #include "ASTStatementNode.h"
 
-class ASTIfStatementNode : ASTStatementNode {
+class ASTIfStatementNode : public ASTStatementNode {
 public:
     ASTIfStatementNode();
     virtual ~ASTIfStatementNode();
 
+    virtual void Accept(Visitor * v);
     virtual void PrintInfo(int p_level) override;
 };
 

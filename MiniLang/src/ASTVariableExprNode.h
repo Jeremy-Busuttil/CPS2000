@@ -18,7 +18,8 @@ public:
 
 	std::string Name;
 
-	virtual llvm::Value * CodeGen();
+	virtual void Accept(class Visitor * v);
+	//virtual llvm::Value * CodeGen();
 	virtual void PrintInfo(int p_level) override;
 };
 

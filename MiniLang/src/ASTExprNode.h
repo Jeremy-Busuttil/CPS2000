@@ -15,8 +15,9 @@ public:
 	ASTExprNode();
 	virtual ~ASTExprNode();
 
-    virtual llvm::Value * CodeGen() = 0;
-	virtual void PrintInfo(int p_level) override;
+	virtual void PrintInfo(int p_level) = 0;
+	virtual void Accept(Visitor * v) = 0;
+//    virtual llvm::Value * CodeGen() = 0;
 };
 
 #endif /* ASTEXPRNODE_H_ */

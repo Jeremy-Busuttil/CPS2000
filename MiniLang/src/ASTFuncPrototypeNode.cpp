@@ -22,3 +22,7 @@ ASTFuncPrototypeNode::~ASTFuncPrototypeNode() {
 void ASTFuncPrototypeNode::PrintInfo(int p_level) {
 	std::cout << "ASTFuncPrototypeNode" << std::endl;
 }
+
+void ASTFuncPrototypeNode::Accept(Visitor * v) {
+	v->visit(this);
+}

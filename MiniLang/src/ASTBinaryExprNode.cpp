@@ -6,11 +6,12 @@
  */
 
 #include "ASTBinaryExprNode.h"
+#include "Visitor.h"
 
-ASTBinaryExprNode::ASTBinaryExprNode(char p_Op, std::unique_ptr<ASTExprNode> p_LHS, std::unique_ptr<ASTExprNode> p_RHS) :
+ASTBinaryExprNode::ASTBinaryExprNode(char p_Op, ASTExprNode * p_LHS, ASTExprNode * p_RHS) :
 	Op(p_Op),
-	LHS(std::move(p_LHS)),
-	RHS(std::move(p_RHS))
+	LHS(p_LHS),
+	RHS(p_RHS)
 {
 	// TODO Auto-generated constructor stub
 }
@@ -27,8 +28,10 @@ void ASTBinaryExprNode::PrintInfo(int p_level) {
 	RHS->PrintInfo(p_level+1);
 }
 
-llvm::Value * ASTBinaryExprNode::CodeGen() {
-	return nullptr;
+//llvm::Value * ASTBinaryExprNode::CodeGen() {
+//	return nullptr;
+//}
+
+void ASTBinaryExprNode::Accept(Visitor * v) {
+	v->visit(this);
 }
-
-

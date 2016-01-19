@@ -7,9 +7,9 @@
 
 #include "ASTCallExprNode.h"
 
-ASTCallExprNode::ASTCallExprNode(std::string p_FunctionName, std::vector<std::unique_ptr<ASTExprNode>> p_Args)
+ASTCallExprNode::ASTCallExprNode(std::string p_FunctionName, std::vector<ASTExprNode*> p_Args)
 	:	FunctionName(p_FunctionName),
-		Args(std::move(p_Args))
+		Args(p_Args)
 {
 	// TODO Auto-generated constructor stub
 
@@ -23,6 +23,10 @@ void ASTCallExprNode::PrintInfo(int p_level) {
 	std::cout << "ASTCallExprNode " << FunctionName << std::endl;
 }
 
-llvm::Value * ASTCallExprNode::CodeGen() {
-	return nullptr;
+//llvm::Value * ASTCallExprNode::CodeGen() {
+//	return nullptr;
+//}
+
+void ASTCallExprNode::Accept(Visitor *v) {
+	v->visit(this);
 }

@@ -17,3 +17,7 @@ void ASTIfStatementNode::PrintInfo(int p_level) {
     for (int t = 0; t<p_level; t++) tabs.append("\t");
     std::cout << tabs << "ASTIfStatementNode C LHS RHS" << std::endl;
 }
+
+void ASTIfStatementNode::Accept(Visitor *v) {
+    v->visit(this);
+}

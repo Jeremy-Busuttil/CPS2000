@@ -11,9 +11,3 @@ ASTStatementNode::ASTStatementNode() {
 ASTStatementNode::~ASTStatementNode() {
     // TODO Auto-generated destructor stub
 }
-
-void ASTStatementNode::PrintInfo(int p_level) {
-    std::string tabs = "";
-    for (int t = 0; t<p_level; t++) tabs.append("\t");
-    std::cout << tabs << "ASTStatementNode [StatementBase]" << std::endl;
-}

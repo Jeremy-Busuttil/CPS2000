@@ -8,14 +8,15 @@
 #include "ASTExprNode.h"
 #include "ASTStatementNode.h"
 
-class ASTAssignmentStatementNode : ASTStatementNode {
+class ASTAssignmentStatementNode : public ASTStatementNode {
 public:
-    ASTAssignmentStatementNode(const std::string &Name, std::unique_ptr<ASTExprNode> p_RHS);
+    ASTAssignmentStatementNode(const std::string &Name, ASTExprNode * p_RHS);
     virtual ~ASTAssignmentStatementNode();
 
     std::string LHS;
-    std::unique_ptr<ASTExprNode> RHS;
+    ASTExprNode * RHS;
 
+    virtual void Accept(Visitor * v) override;
     virtual void PrintInfo(int p_level) override;
 };
 

@@ -20,8 +20,11 @@ void ASTVariableExprNode::PrintInfo(int p_level) {
 	std::cout << "ASTVariableExprNode [" << Name << "]" <<std::endl;
 }
 
-llvm::Value * ASTVariableExprNode::CodeGen() {
+//llvm::Value * ASTVariableExprNode::CodeGen() {
     //llvm::Value *v =
-	return nullptr;
-}
+//	return nullptr;
+//}
 
+void ASTVariableExprNode::Accept(Visitor *v) {
+    v->visit(this);
+}

@@ -12,14 +12,17 @@
 
 class ASTBinaryExprNode: public ASTExprNode {
 public:
-	ASTBinaryExprNode(char p_Op, std::unique_ptr<ASTExprNode> p_LHS, std::unique_ptr<ASTExprNode> p_RHS);
+	ASTBinaryExprNode(char p_Op, ASTExprNode * p_LHS, ASTExprNode * p_RHS);
 	virtual ~ASTBinaryExprNode();
 
 	char Op;
-	std::unique_ptr<ASTExprNode> LHS, RHS;
+	ASTExprNode * LHS;
+	ASTExprNode * RHS;
 
-	virtual llvm::Value * CodeGen();
+    virtual void Accept(Visitor * v) override;
 	virtual void PrintInfo(int p_level) override;
+
+    //virtual llvm::Value * CodeGen();
 };
 
 #endif /* ASTBINARYEXPRNODE_H_ */

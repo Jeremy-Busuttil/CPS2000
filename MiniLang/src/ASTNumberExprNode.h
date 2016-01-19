@@ -17,8 +17,9 @@ public:
 
 	float numberValue;
 
-	virtual llvm::Value * CodeGen();
-	virtual void PrintInfo(int p_level) override;
+    virtual void PrintInfo(int p_level) override;
+	virtual void Accept(Visitor * v) override;
+	//virtual llvm::Value * CodeGen();
 };
 
 #endif /* ASTNUMBEREXPRNODE_H_ */

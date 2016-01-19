@@ -12,17 +12,17 @@
 
 #include <vector>
 #include <string>
-#include <memory>
 
 class ASTCallExprNode: public ASTExprNode {
 public:
-	ASTCallExprNode(std::string p_FunctionName, std::vector<std::unique_ptr<ASTExprNode>> p_Args);
+	ASTCallExprNode(std::string p_FunctionName, std::vector<ASTExprNode*> p_Args);
 	virtual ~ASTCallExprNode();
 
 	std::string FunctionName;
-	std::vector<std::unique_ptr<ASTExprNode>> Args;
+	std::vector<ASTExprNode*> Args;
 
-	virtual llvm::Value * CodeGen();
+	virtual void Accept(Visitor * v);
+	//virtual llvm::Value * CodeGen();
 	virtual void PrintInfo(int p_level) override;
 };
 

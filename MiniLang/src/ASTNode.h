@@ -9,12 +9,13 @@
 #define ASTNODE_H_
 
 #include <string>
-#include <memory>
 #include <iostream>
 #include <fstream>
 
 #include "llvm/IR/IRBuilder.h"
 #include "llvm/IR/Value.h"
+
+#include "Visitor.h"
 
 class ASTNode {
 public:
@@ -23,6 +24,7 @@ public:
 
 	void Initialise();
 
+    virtual void Accept(Visitor * v) = 0;
 	virtual void PrintInfo(int p_level);
 };
 

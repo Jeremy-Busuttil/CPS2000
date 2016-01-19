@@ -21,6 +21,8 @@ public:
 
 	std::string Name;
 	std::vector<std::string> Args;
+
+    virtual void Accept(Visitor * v) override;
 	virtual void PrintInfo(int p_level) override;
 };
 

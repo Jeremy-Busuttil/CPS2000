@@ -12,7 +12,8 @@ public:
     ASTStatementNode();
     virtual ~ASTStatementNode();
 
-    virtual void PrintInfo(int p_level) override;
+    virtual void Accept(Visitor * v) = 0;
+    virtual void PrintInfo(int p_level) = 0;
 };
 
 

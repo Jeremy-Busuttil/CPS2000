@@ -5,12 +5,17 @@
 #ifndef CPS2000_MINILANG_VISITOR_H
 #define CPS2000_MINILANG_VISITOR_H
 
-#include "ASTNode.h"
-#include "ASTExprNode.h"
-#include "ASTVariableExprNode.h"
-#include "ASTBinaryExprNode.h"
-#include "ASTCallExprNode.h"
-#include "ASTNumberExprNode.h"
+class ASTNode;
+class ASTExprNode;
+class ASTVariableExprNode;
+class ASTBinaryExprNode;
+class ASTCallExprNode;
+class ASTNumberExprNode;
+class ASTIfStatementNode;
+class ASTStatementNode;
+class ASTFunctionNode;
+class ASTFuncPrototypeNode;
+class ASTAssignmentStatementNode;
 
 class Visitor {
 public:
@@ -19,7 +24,11 @@ public:
     virtual void visit(ASTVariableExprNode*) = 0;
     virtual void visit(ASTBinaryExprNode*) = 0;
     virtual void visit(ASTCallExprNode*) = 0;
+    virtual void visit(ASTIfStatementNode*) = 0;
+    virtual void visit(ASTStatementNode*) = 0;
+    virtual void visit(ASTFunctionNode*) = 0;
+    virtual void visit(ASTFuncPrototypeNode*) = 0;
+    virtual void visit(ASTAssignmentStatementNode*) = 0;
 };
-
 
 #endif //CPS2000_MINILANG_VISITOR_H

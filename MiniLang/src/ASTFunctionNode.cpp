@@ -7,8 +7,8 @@
 
 #include "ASTFunctionNode.h"
 
-ASTFunctionNode::ASTFunctionNode(std::unique_ptr<ASTFuncPrototypeNode> p_Prototype, std::unique_ptr<ASTStatementNode> p_Body)
-: Proto(std::move(p_Prototype)), Body(std::move(p_Body))
+ASTFunctionNode::ASTFunctionNode(ASTFuncPrototypeNode * p_Prototype, ASTStatementNode * p_Body)
+: Proto(p_Prototype), Body(p_Body)
 {
 	// TODO Auto-generated constructor stub
 }
@@ -19,4 +19,8 @@ ASTFunctionNode::~ASTFunctionNode() {
 
 void ASTFunctionNode::PrintInfo(int p_level) {
 	std::cout << "ASTFunctionNode" << std::endl;
+}
+
+void ASTFunctionNode::Accept(Visitor * v) {
+	v->visit(this);
 }
