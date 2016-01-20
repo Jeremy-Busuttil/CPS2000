@@ -38,12 +38,11 @@ set(SOURCE_FILES
         src/Lexer.cpp
         src/Lexer.h
         src/Parser.cpp
-        src/Parser.h src/Visitor.h src/PrintInfoVisitor.cpp src/PrintInfoVisitor.h)
+        src/Parser.h src/Visitor.h src/PrintInfoVisitor.cpp src/PrintInfoVisitor.h src/IRCodeGeneratorVisitor.cpp src/IRCodeGeneratorVisitor.h)
 
 add_executable(CPS2000_MiniLang ${SOURCE_FILES})
 
-# Find the libraries that correspond to the LLVM components
-# that we wish to use
+# Find the libraries that correspond to the LLVM components that we wish to use
 llvm_map_components_to_libnames(llvm_libs support core irreader)
 
 # Link against LLVM libraries

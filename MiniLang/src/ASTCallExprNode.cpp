@@ -23,10 +23,6 @@ void ASTCallExprNode::PrintInfo(int p_level) {
 	std::cout << "ASTCallExprNode " << FunctionName << std::endl;
 }
 
-//llvm::Value * ASTCallExprNode::CodeGen() {
-//	return nullptr;
-//}
-
 void ASTCallExprNode::Accept(Visitor *v) {
 	v->visit(this);
 }

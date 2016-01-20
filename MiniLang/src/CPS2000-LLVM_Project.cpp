@@ -10,6 +10,7 @@
 #include "Lexer.h"
 #include "Parser.h"
 #include "PrintInfoVisitor.h"
+#include "IRCodeGeneratorVisitor.h"
 
 using namespace std;
 
@@ -23,8 +24,12 @@ int main() {
 	rootNode->PrintInfo(0);
 
     std::cout << "\nPrint AST using PrintInfoVisitor" << std::endl;
-	PrintInfoVisitor *pv = new PrintInfoVisitor();
+	PrintInfoVisitor * pv = new PrintInfoVisitor();
     rootNode->Accept(pv);
+
+    std::cout << "\nIR Code Generation of AST using IRCodeGeneratorVisitor" << std::endl;
+    IRCodeGeneratorVisitor * cg = new IRCodeGeneratorVisitor();
+    rootNode->Accept(cg);
 
 	//Lexer::Token nxtToken = lex->GetToken();
 	//while (nxtToken.token_type != Lexer::TOK_EOF)

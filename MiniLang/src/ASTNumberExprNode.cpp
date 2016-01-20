@@ -21,10 +21,6 @@ void ASTNumberExprNode::PrintInfo(int p_level) {
 	std::cout << tabs << "ASTNumberExprNode [" << std::to_string(numberValue) << "]" << std::endl;
 }
 
-//llvm::Value *ASTNumberExprNode::CodeGen() {
-//	return llvm::ConstantFP::get(llvm::getGlobalContext(), llvm::APFloat(numberValue));
-//}
-
 void ASTNumberExprNode::Accept(Visitor *v) {
 	v->visit(this);
 }

@@ -28,10 +28,6 @@ void ASTBinaryExprNode::PrintInfo(int p_level) {
 	RHS->PrintInfo(p_level+1);
 }
 
-//llvm::Value * ASTBinaryExprNode::CodeGen() {
-//	return nullptr;
-//}
-
 void ASTBinaryExprNode::Accept(Visitor * v) {
 	v->visit(this);
 }

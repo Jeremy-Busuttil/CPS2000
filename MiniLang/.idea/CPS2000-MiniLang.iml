@@ -7,7 +7,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src/Visitor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTBinaryExprNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTNumberExprNode.cpp" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/src/ASTFunctionNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/IRCodeGeneratorVisitor.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/Parser.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTFunctionNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTVariableExprNode.h" isTestSource="false" />
@@ -16,9 +16,11 @@
       <sourceFolder url="file://$MODULE_DIR$/src/ASTCallExprNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTFuncPrototypeNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/PrintInfoVisitor.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/IRCodeGeneratorVisitor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/PrintInfoVisitor.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTExprNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTVariableExprNode.cpp" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/src/ASTFunctionNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTAssignmentStatementNode.h" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTExprNode.cpp" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/src/ASTCallExprNode.cpp" isTestSource="false" />
