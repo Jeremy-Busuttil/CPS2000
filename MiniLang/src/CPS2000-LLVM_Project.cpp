@@ -22,7 +22,8 @@ using namespace std;
 
 int main() {
 	//Lexer * lex = new Lexer("./Resource/test.prog");
-	Lexer * lex = new Lexer("./resources/simple_expr.prog");
+	//Lexer * lex = new Lexer("./resources/simple_expr.prog");
+    Lexer * lex = new Lexer("./resources/simple_func_def.prog");
 	cout << lex->ToString() << endl;
 	Parser * parser = new Parser(*lex);
 	auto rootNode = parser->Parse();
@@ -33,21 +34,29 @@ int main() {
 	PrintInfoVisitor * pv = new PrintInfoVisitor();
     rootNode->Accept(pv);
 
-    llvm::Module * TheModule;
-    llvm::IRBuilder<> Builder(llvm::getGlobalContext());
-    std::map<std::string, llvm::Value *> NamedValues;
-
     std::cout << "\nIR Code Generation of AST using IRCodeGeneratorVisitor" << std::endl;
-    IRCodeGeneratorVisitor * cg = new IRCodeGeneratorVisitor();
+    llvm::Module * module = new llvm::Module("MiniLangCompiler", llvm::getGlobalContext());
+    llvm::IRBuilder<> builder(llvm::getGlobalContext());
+    std::map<std::string, llvm::Value *> namedValues;
+    IRCodeGeneratorVisitor * cg = new IRCodeGeneratorVisitor(module, builder, namedValues);
     rootNode->Accept(cg);
+    std::cout << "Root ASTNode Value->dump()" << std::endl;
+    cg->crtValue->dump();
 
-	//Lexer::Token nxtToken = lex->GetToken();
-	//while (nxtToken.token_type != Lexer::TOK_EOF)
-	//{
-	//	cout << nxtToken.ToString() << " ";
-	//	nxtToken = lex->GetToken();
-	//}
-	//cout << nxtToken.ToString() << endl;
+    std::cout << "\nIRBuilder->dump()" << std::endl;
+    //module->dump();
+
+
+
+    /*
+	Lexer::Token nxtToken = lex->GetToken();
+	while (nxtToken.token_type != Lexer::TOK_EOF)
+	{
+		cout << nxtToken.ToString() << " ";
+		nxtToken = lex->GetToken();
+	}
+	cout << nxtToken.ToString() << endl;
+     */
 
 	return 0;
 }
