@@ -12,6 +12,12 @@
 #include "PrintInfoVisitor.h"
 #include "IRCodeGeneratorVisitor.h"
 
+#include "llvm/ADT/STLExtras.h"
+#include "llvm/IR/IRBuilder.h"
+#include "llvm/IR/LLVMContext.h"
+#include "llvm/IR/Module.h"
+#include "llvm/IR/Verifier.h"
+
 using namespace std;
 
 int main() {
@@ -26,6 +32,10 @@ int main() {
     std::cout << "\nPrint AST using PrintInfoVisitor" << std::endl;
 	PrintInfoVisitor * pv = new PrintInfoVisitor();
     rootNode->Accept(pv);
+
+    llvm::Module * TheModule;
+    llvm::IRBuilder<> Builder(llvm::getGlobalContext());
+    std::map<std::string, llvm::Value *> NamedValues;
 
     std::cout << "\nIR Code Generation of AST using IRCodeGeneratorVisitor" << std::endl;
     IRCodeGeneratorVisitor * cg = new IRCodeGeneratorVisitor();
