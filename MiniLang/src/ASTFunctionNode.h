@@ -13,12 +13,12 @@
 
 class ASTFunctionNode : public ASTNode {
 public:
-	ASTFunctionNode(ASTFuncPrototypeNode * p_Prototype, ASTStatementNode * p_Body);
+	ASTFunctionNode(ASTFuncPrototypeNode * p_Prototype, std::vector<ASTStatementNode *> * p_Body);
 
 	virtual ~ASTFunctionNode();
 
 	ASTFuncPrototypeNode * Proto;
-	ASTStatementNode * Body;
+	std::vector<ASTStatementNode *> * Body;
 
 	virtual void Accept(Visitor * v) override;
 	virtual void PrintInfo(int p_level) override;

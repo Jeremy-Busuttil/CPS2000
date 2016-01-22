@@ -25,7 +25,19 @@ int main() {
 	//Lexer * lex = new Lexer("./resources/simple_expr.prog");
     Lexer * lex = new Lexer("./resources/simple_func_def.prog");
 	cout << lex->ToString() << endl;
-	Parser * parser = new Parser(*lex);
+
+    /*Lexer::Token nxtToken = lex->GetToken();
+    while (nxtToken.token_type != Lexer::TOK_EOF)
+    {
+       cout << nxtToken.ToString() << " ";
+       nxtToken = lex->GetToken();
+    }
+    cout << nxtToken.ToString() << endl;
+    */
+
+
+
+    Parser * parser = new Parser(*lex);
 	auto rootNode = parser->Parse();
     std::cout << "Print AST using PrintInfo ASTNode functions" << std::endl;
 	rootNode->PrintInfo(0);
@@ -34,6 +46,7 @@ int main() {
 	PrintInfoVisitor * pv = new PrintInfoVisitor();
     rootNode->Accept(pv);
 
+    /*
     std::cout << "\nIR Code Generation of AST using IRCodeGeneratorVisitor" << std::endl;
     llvm::Module * module = new llvm::Module("MiniLangCompiler", llvm::getGlobalContext());
     llvm::IRBuilder<> builder(llvm::getGlobalContext());
@@ -45,18 +58,7 @@ int main() {
 
     std::cout << "\nIRBuilder->dump()" << std::endl;
     //module->dump();
-
-
-
-    /*
-	Lexer::Token nxtToken = lex->GetToken();
-	while (nxtToken.token_type != Lexer::TOK_EOF)
-	{
-		cout << nxtToken.ToString() << " ";
-		nxtToken = lex->GetToken();
-	}
-	cout << nxtToken.ToString() << endl;
-     */
+    */
 
 	return 0;
 }

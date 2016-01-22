@@ -22,6 +22,7 @@
 #include "ASTStatementNode.h"
 #include "ASTIfStatementNode.h"
 #include "ASTAssignmentStatementNode.h"
+#include "ASTReturnStatementNode.h"
 
 //AST Function Nodes
 #include "ASTFunctionNode.h"
@@ -50,11 +51,14 @@ private:
 	ASTExprNode * ParseExpression();
 
 	ASTFuncPrototypeNode * ParseFunctionPrototype();
-	ASTStatementNode * ParseFunctionBody();
+	std::vector<ASTStatementNode *> * ParseFunctionBody();
 	ASTFunctionNode * ParseFunctionDefinition();
 
 	ASTStatementNode * ParseIfStatement();
 	ASTStatementNode * ParseAssignmentStatement();
+	ASTStatementNode * ParseReturnStatement();
+	ASTStatementNode * ParseStatement();
+
 };
 
 #endif /* PARSER_H_ */

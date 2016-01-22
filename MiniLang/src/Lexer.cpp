@@ -79,7 +79,7 @@ Lexer::Token Lexer::GetToken() {
 	if (lastChar == ';')
 	{
 		m_charIndex ++;
-		Lexer::Token t = Lexer::Token(TOK_PUNC);
+		Lexer::Token t = Lexer::Token(TOK_STMT_DELIMITER);
 		t.id_name = ";";
 		return t;
 	}
@@ -264,6 +264,11 @@ Lexer::Token Lexer::GetToken() {
 		if (idStr.compare("int")==0)
 		{
 			return Lexer::Token(TOK_SRCLANG_TYPE);
+		}
+
+		if (idStr.compare("return")==0)
+		{
+			return Lexer::Token(TOK_RETURN);
 		}
 
 		//If none of the above, the it must be an identifier

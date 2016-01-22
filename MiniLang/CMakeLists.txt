@@ -38,7 +38,7 @@ set(SOURCE_FILES
         src/Lexer.cpp
         src/Lexer.h
         src/Parser.cpp
-        src/Parser.h src/Visitor.h src/PrintInfoVisitor.cpp src/PrintInfoVisitor.h src/IRCodeGeneratorVisitor.cpp src/IRCodeGeneratorVisitor.h)
+        src/Parser.h src/Visitor.h src/PrintInfoVisitor.cpp src/PrintInfoVisitor.h src/IRCodeGeneratorVisitor.cpp src/IRCodeGeneratorVisitor.h src/ASTReturnStatementNode.cpp src/ASTReturnStatementNode.h)
 
 add_executable(CPS2000_MiniLang ${SOURCE_FILES})
 

@@ -168,11 +168,22 @@ ASTExprNode * Parser::ParseExpression()
 	return ParseBinaryExpr(0, std::move(LHS));
 }
 
+ASTStatementNode * Parser::ParseReturnStatement()
+{
+    CurrentToken = Lex.GetToken();
+    auto node = new ASTReturnStatementNode();
+    auto expr_node = ParseExpression();
+    if (!expr_node)
+        return nullptr;
+
+    node->LHS = expr_node;
+    return node;
+}
+
 ASTStatementNode * Parser::ParseIfStatement()
 {
 	auto node = new ASTIfStatementNode();
 	CurrentToken = Lex.GetToken();
-	//return std::move(node);
 	return node;
 }
 
@@ -189,12 +200,32 @@ ASTStatementNode * Parser::ParseAssignmentStatement()
 	auto expr_node = ParseExpression();
 	auto ass_node = new ASTAssignmentStatementNode(var_name.c_str(), expr_node);
     return ass_node;
-	//return std::move(ass_node);
-	//return nullptr;
+}
+
+ASTStatementNode * Parser::ParseStatement()
+{
+    ASTStatementNode * node = nullptr;
+    switch(CurrentToken.token_type)
+    {
+        case Lexer::TOK_RETURN:
+            node = ParseReturnStatement();
+            break;
+        case Lexer::TOK_IF:
+            node = ParseIfStatement();
+            break;
+        case Lexer::TOK_ID:
+            node = ParseAssignmentStatement();
+            break;
+        default:
+            break;
+    }
+    if (!node)
+        return nullptr;
+    return node;
 }
 
 ASTFuncPrototypeNode * Parser::ParseFunctionPrototype() {
-	CurrentToken = Lex.GetToken();
+
 	if (CurrentToken.token_type != Lexer::TOK_ID) {
 		Error("Expecting function name");
 		return nullptr;
@@ -204,58 +235,84 @@ ASTFuncPrototypeNode * Parser::ParseFunctionPrototype() {
 	auto functionParameters = std::vector<std::string>();
 
 	CurrentToken = Lex.GetToken();
-	if (CurrentToken.token_type != Lexer::TOK_PUNC) {
-		if (CurrentToken.id_name.compare("(") == 0)
-		{
-			CurrentToken = Lex.GetToken();
-			while (CurrentToken.token_type != Lexer::TOK_PUNC)
-			{
-				if (CurrentToken.token_type == Lexer::TOK_ID)
-				{
-					functionParameters.push_back(CurrentToken.id_name);
-					CurrentToken = Lex.GetToken();
-					if (CurrentToken.token_type == Lexer::TOK_PUNC)
-					{
-						if (CurrentToken.id_name.compare(",") == 0)
-						{
-							CurrentToken = Lex.GetToken();
-						}
-						else
-						{
-							std::string errorMsg = "Expecting , between parameter variables of function ";
-							errorMsg.append(functionName);
-							Error(errorMsg.c_str());
-							return nullptr;
-						}
-					}
-				}
-				else
-				{
-					std::string errorMsg = "Expecting function parameter variables after function ";
-					errorMsg.append(functionName);
-					Error(errorMsg.c_str());
-					return nullptr;
-				}
-			}
-			if (CurrentToken.id_name.compare(")"))
-			{
-				//Create and return a function prototype AST node
-				return new ASTFuncPrototypeNode(functionName.c_str(), functionParameters);
-			}
-		}
-	}
+	if (CurrentToken.token_type == Lexer::TOK_PUNC) {
+        if (CurrentToken.id_name.compare("(") == 0) {
+            CurrentToken = Lex.GetToken();
+            while (CurrentToken.token_type == Lexer::TOK_ID) {
+                functionParameters.push_back(CurrentToken.id_name);
+                CurrentToken = Lex.GetToken();
+                if (CurrentToken.token_type == Lexer::TOK_PUNC) {
+                    if (CurrentToken.id_name.compare(",") == 0) {
+                        //Consume comma
+                        CurrentToken = Lex.GetToken();
+                    }
+                }
+            }
+        }
 
-	std::string errorMsg = "Expecting ( after function name ";
-	errorMsg.append(functionName);
-	Error(errorMsg.c_str());
-	return nullptr;
+        if (CurrentToken.token_type == Lexer::TOK_PUNC) {
+            if (CurrentToken.id_name.compare(")") == 0) {
+                //Discard ')', Create and return a function prototype AST node
+                CurrentToken = Lex.GetToken();
+                return new ASTFuncPrototypeNode(functionName.c_str(), functionParameters);
+            }
+            else {
+                std::string errorMsg = "Expecting ) after function parameters ";
+                errorMsg.append(functionName);
+                Error(errorMsg.c_str());
+                return nullptr;
+            }
+        }
+    }
+    else
+    {
+        std::string errorMsg = "Expecting ) after function parameters ";
+        errorMsg.append(functionName);
+        Error(errorMsg.c_str());
+        return nullptr;
+    }
+
 }
 
-ASTStatementNode * Parser::ParseFunctionBody()
+std::vector<ASTStatementNode *> * Parser::ParseFunctionBody()
 {
-	//std::unique_ptr<ASTStatementNode> statement_node;
-	auto statement_node = ParseAssignmentStatement();
-	return statement_node;
+    std::vector<ASTStatementNode *> * nodes = new std::vector<ASTStatementNode *>();
+    if (CurrentToken.token_type == Lexer::TOK_PUNC)
+    {
+        if (CurrentToken.id_name.compare("{") == 0)
+        {
+            while (true)
+            {
+                auto node = ParseStatement();
+                if (node && CurrentToken.token_type != Lexer::TOK_STMT_DELIMITER)
+                {
+                    nodes->push_back(node);
+                    CurrentToken = Lex.GetToken();
+                    if (CurrentToken.token_type == Lexer::TOK_PUNC)
+                        break;
+                }
+            }
+            if (CurrentToken.token_type == Lexer::TOK_PUNC) {
+                if (CurrentToken.id_name.compare("}") == 0) {
+                    CurrentToken = Lex.GetToken();
+                    return nodes;
+                }
+            }
+            std::string errorMsg = "Expecting } to close function body of ";
+            //errorMsg.append(functionName);
+            Error(errorMsg.c_str());
+        }
+        else
+        {
+            std::string errorMsg = "Expecting { after function prototype in declaration of ";
+            //errorMsg.append(functionName);
+            Error(errorMsg.c_str());
+            return nullptr;
+        }
+    }
+    std::string errorMsg = "Expecting TOK_PUNC after function prototype in function declaration";
+    Error(errorMsg.c_str());
+	return nullptr;
 }
 
 ASTFunctionNode * Parser::ParseFunctionDefinition()
@@ -280,8 +337,7 @@ ASTNode * Parser::Parse()
 		switch(CurrentToken.token_type)
 		{
 		case Lexer::TOK_DEF:
-			//auto p = ParseFunctionDefinition();
-				//p->PrintInfo(0);
+			root = ParseFunctionDefinition();
 			break;
 		default:
 			root = ParseExpression();

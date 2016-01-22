@@ -7,7 +7,7 @@
 
 #include "ASTFunctionNode.h"
 
-ASTFunctionNode::ASTFunctionNode(ASTFuncPrototypeNode * p_Prototype, ASTStatementNode * p_Body)
+ASTFunctionNode::ASTFunctionNode(ASTFuncPrototypeNode * p_Prototype, std::vector<ASTStatementNode *> * p_Body)
 : Proto(p_Prototype), Body(p_Body)
 {
 	// TODO Auto-generated constructor stub

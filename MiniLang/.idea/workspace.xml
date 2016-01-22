@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="BookmarkManager">
-    <bookmark url="file://$PROJECT_DIR$/src/Parser.cpp" line="201" />
+    <bookmark url="file://$PROJECT_DIR$/src/Parser.cpp" line="232" />
   </component>
   <component name="CMakeRunConfigurationManager" shouldGenerate="true" assignedExecutableTargets="true" buildAllGenerated="true">
     <generated>
@@ -34,14 +34,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="IRCodeGeneratorVisitor.cpp" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IRCodeGeneratorVisitor.cpp">
+      <file leaf-file-name="ASTReturnStatementNode.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ASTReturnStatementNode.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
+              <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
               <folding>
-                <element signature="e#40#75#0" expanded="true" />
+                <element signature="e#141#170#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ASTFunctionNode.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ASTFunctionNode.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="9" column="102" selection-start-line="9" selection-start-column="102" selection-end-line="9" selection-end-column="102" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ASTReturnStatementNode.cpp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ASTReturnStatementNode.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Parser.cpp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.99450547">
+              <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
+              <folding>
+                <element signature="e#97#186#0" expanded="false" />
+                <element signature="e#188#249#0" expanded="false" />
+                <element signature="e#251#365#0" expanded="false" />
+                <element signature="e#367#519#0" expanded="false" />
+                <element signature="e#521#904#0" expanded="false" />
+                <element signature="e#906#2264#0" expanded="false" />
+                <element signature="e#2266#2640#0" expanded="false" />
+                <element signature="e#2642#3433#0" expanded="false" />
+                <element signature="e#3435#3582#0" expanded="false" />
+                <element signature="e#3584#3847#0" expanded="false" />
+                <element signature="e#3849#3983#0" expanded="false" />
+                <element signature="e#3985#4430#0" expanded="false" />
+                <element signature="e#4934#6645#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ASTFunctionNode.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/ASTFunctionNode.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -50,7 +104,7 @@
         <entry file="file://$PROJECT_DIR$/src/Lexer.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <caret line="82" column="72" selection-start-line="82" selection-start-column="72" selection-end-line="82" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -60,17 +114,7 @@
         <entry file="file://$PROJECT_DIR$/src/Lexer.cpp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="231" column="23" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="simple_expr.prog" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/simple_expr.prog">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+              <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -80,43 +124,30 @@
         <entry file="file://$PROJECT_DIR$/resources/simple_func_def.prog">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+              <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="test.prog" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/test.prog">
+      <file leaf-file-name="Parser.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Parser.h">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="3" column="2" selection-start-line="3" selection-start-column="2" selection-end-line="3" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IRCodeGeneratorVisitor.h" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/IRCodeGeneratorVisitor.h">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="28" column="94" selection-start-line="28" selection-start-column="94" selection-end-line="28" selection-end-column="94" />
+              <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
               <folding>
-                <element signature="e#141#161#0" expanded="true" />
+                <element signature="e#344#373#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CPS2000-LLVM_Project.cpp" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CPS2000-LLVM_Project.cpp" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/CPS2000-LLVM_Project.cpp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.8086957">
-              <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
-              <folding>
-                <element signature="e#318#337#0" expanded="true" />
-                <element signature="e#1743#1954#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.0">
+              <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -141,16 +172,12 @@
         <option value="$PROJECT_DIR$/src/ASTFuncPrototypeNode.h" />
         <option value="$PROJECT_DIR$/src/ASTBinaryExprNode.h" />
         <option value="$PROJECT_DIR$/src/ASTFuncPrototypeNode.cpp" />
-        <option value="$PROJECT_DIR$/src/ASTFunctionNode.h" />
-        <option value="$PROJECT_DIR$/src/ASTFunctionNode.cpp" />
         <option value="$PROJECT_DIR$/src/ASTAssignmentStatementNode.h" />
         <option value="$PROJECT_DIR$/src/ASTExprNode.cpp" />
         <option value="$PROJECT_DIR$/src/ASTStatementNode.h" />
         <option value="$PROJECT_DIR$/src/ASTStatementNode.cpp" />
         <option value="$PROJECT_DIR$/src/Visitor.h" />
         <option value="$PROJECT_DIR$/src/PrintInfoVisitor.cpp" />
-        <option value="$PROJECT_DIR$/src/Parser.h" />
-        <option value="$PROJECT_DIR$/src/Parser.cpp" />
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
         <option value="$PROJECT_DIR$/src/ASTVariableExprNode.cpp" />
         <option value="$PROJECT_DIR$/src/ASTNumberExprNode.cpp" />
@@ -160,7 +187,15 @@
         <option value="$PROJECT_DIR$/src/IRCodeGeneratorVisitor.h" />
         <option value="$PROJECT_DIR$/src/IRCodeGeneratorVisitor.cpp" />
         <option value="$PROJECT_DIR$/resources/simple_expr.prog" />
+        <option value="$PROJECT_DIR$/src/ASTReturnStatementNode.cpp" />
+        <option value="$PROJECT_DIR$/src/ASTReturnStatementNode.h" />
         <option value="$PROJECT_DIR$/src/CPS2000-LLVM_Project.cpp" />
+        <option value="$PROJECT_DIR$/src/Lexer.cpp" />
+        <option value="$PROJECT_DIR$/src/Lexer.h" />
+        <option value="$PROJECT_DIR$/src/Parser.h" />
+        <option value="$PROJECT_DIR$/src/Parser.cpp" />
+        <option value="$PROJECT_DIR$/src/ASTFunctionNode.cpp" />
+        <option value="$PROJECT_DIR$/src/ASTFunctionNode.h" />
       </list>
     </option>
   </component>
@@ -323,7 +358,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="65" y="24" width="1855" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22270742" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -331,7 +366,7 @@
       <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.36913452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.36913452" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295099" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -386,48 +421,30 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/CPS2000-LLVM_Project.cpp</url>
-          <line>60</line>
+          <line>62</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
           <url>file://$PROJECT_DIR$/src/CPS2000-LLVM_Project.cpp</url>
-          <line>36</line>
+          <line>49</line>
           <option name="timeStamp" value="12" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/Parser.cpp</url>
+          <line>311</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/src/Parser.cpp</url>
+          <line>278</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
       </breakpoints>
-      <option name="time" value="13" />
+      <option name="time" value="18" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="172" column="0" selection-start-line="172" selection-start-column="0" selection-end-line="172" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#186#0" expanded="false" />
-            <element signature="e#188#249#0" expanded="false" />
-            <element signature="e#251#365#0" expanded="false" />
-            <element signature="e#2266#2640#0" expanded="false" />
-            <element signature="e#2642#3433#0" expanded="false" />
-            <element signature="e#3435#3582#0" expanded="false" />
-            <element signature="e#3584#3745#0" expanded="false" />
-            <element signature="e#3747#4242#0" expanded="false" />
-            <element signature="e#4244#5833#0" expanded="false" />
-            <element signature="e#5835#6013#0" expanded="false" />
-            <element signature="e#6015#6304#0" expanded="false" />
-            <element signature="e#6306#6739#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -436,15 +453,16 @@
             <element signature="e#97#186#0" expanded="false" />
             <element signature="e#188#249#0" expanded="false" />
             <element signature="e#251#365#0" expanded="false" />
+            <element signature="e#367#519#0" expanded="false" />
+            <element signature="e#521#904#0" expanded="false" />
+            <element signature="e#906#2264#0" expanded="false" />
             <element signature="e#2266#2640#0" expanded="false" />
             <element signature="e#2642#3433#0" expanded="false" />
             <element signature="e#3435#3582#0" expanded="false" />
-            <element signature="e#3584#3745#0" expanded="false" />
-            <element signature="e#3747#4242#0" expanded="false" />
-            <element signature="e#4244#5833#0" expanded="false" />
-            <element signature="e#5835#6013#0" expanded="false" />
-            <element signature="e#6015#6304#0" expanded="false" />
-            <element signature="e#6306#6739#0" expanded="false" />
+            <element signature="e#3584#3847#0" expanded="false" />
+            <element signature="e#3849#3983#0" expanded="false" />
+            <element signature="e#3985#4430#0" expanded="false" />
+            <element signature="e#4934#6645#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -540,20 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ASTCallExprNode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="37" selection-start-line="23" selection-start-column="4" selection-end-line="23" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ASTIfStatementNode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="14" column="37" selection-start-line="14" selection-start-column="37" selection-end-line="14" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ASTNumberExprNode.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -568,24 +572,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ASTFunctionNode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-10.620689">
-          <caret line="22" column="46" selection-start-line="22" selection-start-column="46" selection-end-line="22" selection-end-column="46" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/ASTAssignmentStatementNode.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="10" column="54" selection-start-line="10" selection-start-column="54" selection-end-line="10" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ASTBinaryExprNode.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="4" selection-start-line="21" selection-start-column="4" selection-end-line="21" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -607,34 +597,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="33" selection-start-line="17" selection-start-column="33" selection-end-line="17" selection-end-column="33" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="52" column="43" selection-start-line="52" selection-start-column="43" selection-end-line="52" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="81" column="0" selection-start-line="81" selection-start-column="0" selection-end-line="81" selection-end-column="0" />
-          <folding>
-            <element signature="e#97#186#0" expanded="false" />
-            <element signature="e#188#249#0" expanded="false" />
-            <element signature="e#251#365#0" expanded="false" />
-            <element signature="e#2266#2640#0" expanded="false" />
-            <element signature="e#2642#3433#0" expanded="false" />
-            <element signature="e#3435#3582#0" expanded="false" />
-            <element signature="e#3584#3745#0" expanded="false" />
-            <element signature="e#3747#4242#0" expanded="false" />
-            <element signature="e#4244#5833#0" expanded="false" />
-            <element signature="e#5835#6013#0" expanded="false" />
-            <element signature="e#6015#6304#0" expanded="false" />
-            <element signature="e#6306#6739#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -684,22 +646,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="17" column="1" selection-start-line="17" selection-start-column="1" selection-end-line="17" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ASTIfStatementNode.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="21" column="19" selection-start-line="21" selection-start-column="19" selection-end-line="21" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ASTFunctionNode.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="23" column="16" selection-start-line="23" selection-start-column="16" selection-end-line="23" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -759,28 +705,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Lexer.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Lexer.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="231" column="23" selection-start-line="231" selection-start-column="21" selection-end-line="231" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/IRCodeGeneratorVisitor.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="28" column="94" selection-start-line="28" selection-start-column="94" selection-end-line="28" selection-end-column="94" />
           <folding>
-            <element signature="e#141#161#0" expanded="true" />
+            <element signature="e#141#161#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -798,26 +728,137 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="35" column="52" selection-start-line="35" selection-start-column="52" selection-end-line="35" selection-end-column="52" />
           <folding>
-            <element signature="e#40#75#0" expanded="true" />
+            <element signature="e#40#75#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/simple_func_def.prog">
+    <entry file="file://$PROJECT_DIR$/src/ASTIfStatementNode.h">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="42" selection-start-line="0" selection-start-column="42" selection-end-line="0" selection-end-column="42" />
+          <caret line="7" column="0" selection-start-line="7" selection-start-column="0" selection-end-line="7" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTIfStatementNode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="14" column="42" selection-start-line="14" selection-start-column="42" selection-end-line="14" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTCallExprNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="29" selection-start-line="20" selection-start-column="29" selection-end-line="20" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTBinaryExprNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="18" column="22" selection-start-line="18" selection-start-column="22" selection-end-line="18" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTReturnStatementNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
+          <folding>
+            <element signature="e#141#170#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTReturnStatementNode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="12" column="1" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/CPS2000-LLVM_Project.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8086957">
-          <caret line="43" column="25" selection-start-line="43" selection-start-column="25" selection-end-line="43" selection-end-column="25" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="4" selection-start-line="35" selection-start-column="4" selection-end-line="35" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/simple_func_def.prog">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="31" selection-start-line="0" selection-start-column="31" selection-end-line="0" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lexer.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="81" column="38" selection-start-line="81" selection-start-column="38" selection-end-line="81" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Lexer.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="82" column="72" selection-start-line="82" selection-start-column="72" selection-end-line="82" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="53" column="38" selection-start-line="53" selection-start-column="38" selection-end-line="53" selection-end-column="38" />
           <folding>
-            <element signature="e#318#337#0" expanded="true" />
-            <element signature="e#1743#1954#0" expanded="false" />
+            <element signature="e#344#373#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTFunctionNode.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="9" column="102" selection-start-line="9" selection-start-column="102" selection-end-line="9" selection-end-column="102" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ASTFunctionNode.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="37" selection-start-line="20" selection-start-column="37" selection-end-line="20" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Parser.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.99450547">
+          <caret line="286" column="0" selection-start-line="286" selection-start-column="0" selection-end-line="286" selection-end-column="0" />
+          <folding>
+            <element signature="e#97#186#0" expanded="false" />
+            <element signature="e#188#249#0" expanded="false" />
+            <element signature="e#251#365#0" expanded="false" />
+            <element signature="e#367#519#0" expanded="false" />
+            <element signature="e#521#904#0" expanded="false" />
+            <element signature="e#906#2264#0" expanded="false" />
+            <element signature="e#2266#2640#0" expanded="false" />
+            <element signature="e#2642#3433#0" expanded="false" />
+            <element signature="e#3435#3582#0" expanded="false" />
+            <element signature="e#3584#3847#0" expanded="false" />
+            <element signature="e#3849#3983#0" expanded="false" />
+            <element signature="e#3985#4430#0" expanded="false" />
+            <element signature="e#4934#6645#0" expanded="false" />
           </folding>
         </state>
       </provider>
