@@ -24,7 +24,7 @@ public:
 					TOK_NUMBER = -5, TOK_NUM_ERROR = -6, TOK_IF = -7, TOK_PUNC = -8,
 					TOK_SRCLANG_TYPE = -9, TOK_SYNTAX_ERR = -10, TOK_BOOLOP = -11,
 					TOK_ASSIGNOP = -12, TOK_ARITHMETICOP = -13, TOK_RETURN = -14,
-                    TOK_STMT_DELIMITER = -15};
+                    TOK_STMT_DELIMITER = -15, TOK_OPEN_SCOPE = -16, TOK_CLOSE_SCOPE = -17};
 
 	struct Token
 	{
@@ -81,6 +81,8 @@ public:
 				case TOK_IF : return "[TOK_IF]";
 				case TOK_PUNC : return "[TOK_PUNC " + id_name+ "]";
                 case TOK_STMT_DELIMITER : return "[TOK_STMT_DELIMITER ; ]";
+				case TOK_OPEN_SCOPE : return "[TOK_OPEN_SCOPE]";
+				case TOK_CLOSE_SCOPE : return "[TOK_CLOSE_SCOPE]";
 				case TOK_SRCLANG_TYPE : return "[TOK_SRCLANG_TYPE::" + id_name+ "]";
 				case TOK_SYNTAX_ERR : return "[TOK_SYNTAX_ERR]";
 				case TOK_BOOLOP : return "[TOK_BOOLOP " + id_name+ "]";

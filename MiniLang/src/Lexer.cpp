@@ -111,7 +111,7 @@ Lexer::Token Lexer::GetToken() {
 	if (lastChar == '{')
 	{
 		m_charIndex ++;
-		Lexer::Token t = Lexer::Token(TOK_PUNC);
+		Lexer::Token t = Lexer::Token(TOK_OPEN_SCOPE);
 		t.id_name = "{";
 		return t;
 	}
@@ -119,7 +119,7 @@ Lexer::Token Lexer::GetToken() {
 	if (lastChar == '}')
 	{
 		m_charIndex ++;
-		Lexer::Token t = Lexer::Token(TOK_PUNC);
+		Lexer::Token t = Lexer::Token(TOK_CLOSE_SCOPE);
 		t.id_name = "}";
 		return t;
 	}
