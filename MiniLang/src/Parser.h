@@ -28,6 +28,8 @@
 #include "ASTFunctionNode.h"
 #include "ASTFuncPrototypeNode.h"
 
+#include "ASTProgramNode.h"
+
 //LLVM includes
 #include "llvm/IR/Module.h"
 

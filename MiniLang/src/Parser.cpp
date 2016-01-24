@@ -322,22 +322,31 @@ ASTFunctionNode * Parser::ParseFunctionDefinition()
 ASTNode * Parser::Parse()
 {
 	std::cout << "[Parser] Start" << std::endl;
-    ASTNode * root;
+    std::vector<ASTFunctionNode *> * functions = new std::vector<ASTFunctionNode *>();
+    std::vector<ASTStatementNode *> * main_impl = new std::vector<ASTStatementNode *>();
 	CurrentToken = Lex.GetToken();
 	while (CurrentToken.token_type != Lexer::TOK_EOF)
 	{
 		switch(CurrentToken.token_type)
 		{
-		case Lexer::TOK_DEF:
-			    root = ParseFunctionDefinition();
-                if (!root) CurrentToken = Lex.GetToken();
-			    break;
-		default:
-			    root = ParseExpression();
-                if (!root) CurrentToken = Lex.GetToken();
-			    break;
+		    case Lexer::TOK_DEF: {
+                auto f_root = ParseFunctionDefinition();
+                if (!f_root)
+                    CurrentToken = Lex.GetToken();
+                else
+                    functions->push_back(f_root);
+                break;
+            }
+		    default: {
+                auto stmt = ParseExpression();
+                if (!stmt) CurrentToken = Lex.GetToken();
+                break;
+            }
 		}
 	}
-	std::cout << "[Parser] Finish" << std::endl;
-	return root;
+	std::cout << "[Parser] Finished with " << functions->size() << " functions and " << main_impl->size() << " statements parsed." <<std::endl;
+    ASTProgramNode * programNode = new ASTProgramNode();
+    programNode->functions = functions;
+    programNode->main_impl = main_impl;
+	return programNode;
 }

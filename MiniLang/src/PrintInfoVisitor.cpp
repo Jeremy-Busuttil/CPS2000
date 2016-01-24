@@ -8,7 +8,7 @@
 #include "ASTVariableExprNode.h"
 #include "ASTFunctionNode.h"
 #include "ASTReturnStatementNode.h"
-
+#include "ASTProgramNode.h"
 
 PrintInfoVisitor::PrintInfoVisitor() : Indent(0) {
     std::cout << "[PrintInfoVisitor] " << std::endl;
@@ -84,4 +84,17 @@ void PrintInfoVisitor::visit(ASTReturnStatementNode * p_node) {
     for (int t = 0; t<Indent; t++) tabs.append("\t");
     std::cout << tabs << "ASTReturnStatement " << std::endl;
     p_node->LHS->Accept(this);
+}
+
+void PrintInfoVisitor::visit(ASTProgramNode * p_node) {
+    std::string tabs = "";
+    for (int t = 0; t < Indent; t++) tabs.append("\t");
+    std::cout << tabs << "ASTProgramNode " << std::endl;
+    Indent++;
+    for (int i = 0; i < p_node->functions->size(); i++)
+        p_node->functions->at(i)->Accept(this);
+
+    for (int i = 0; i<p_node->main_impl->size(); i++)
+        p_node->main_impl->at(i)->Accept(this);
+    Indent--;
 }

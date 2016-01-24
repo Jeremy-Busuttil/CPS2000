@@ -23,8 +23,9 @@ using namespace std;
 int main() {
 	//Lexer * lex = new Lexer("./Resource/test.prog");
 	//Lexer * lex = new Lexer("./resources/simple_expr.prog");
-    Lexer * lex = new Lexer("./resources/simple_func_def.prog");
-	cout << lex->ToString() << endl;
+    //Lexer * lex = new Lexer("./resources/simple_func_def.prog");
+    Lexer * lex = new Lexer("./resources/simple_funcs_def.prog");
+    cout << lex->ToString() << endl;
 
     /*Lexer::Token nxtToken = lex->GetToken();
     while (nxtToken.token_type != Lexer::TOK_EOF)

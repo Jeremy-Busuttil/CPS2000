@@ -17,6 +17,7 @@ class ASTFunctionNode;
 class ASTFuncPrototypeNode;
 class ASTAssignmentStatementNode;
 class ASTReturnStatementNode;
+class ASTProgramNode;
 
 class Visitor {
 public:
