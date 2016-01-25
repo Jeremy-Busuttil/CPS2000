@@ -49,7 +49,7 @@ ASTExprNode * Parser::ParseIdentifierExpr()
 {
 	std::string Name = CurrentToken.id_name;
 	CurrentToken = Lex.GetToken();
-	if (CurrentToken.token_type != Lexer::TOK_PUNC)
+	if (CurrentToken.token_type == Lexer::TOK_PUNC || CurrentToken.token_type == Lexer::TOK_ARITHMETICOP || CurrentToken.token_type == Lexer::TOK_STMT_DELIMITER)
 	{
 		return new ASTVariableExprNode(Name);
 	}
@@ -187,13 +187,27 @@ ASTStatementNode * Parser::ParseIfStatement()
 	return node;
 }
 
+ASTStatementNode * Parser::ParseDeclarationStatement()
+{
+    //Declare the new variable and parse as if this is a assignment.
+    //NOTE: All variable declarations have to be initialised.
+
+    std::string type = CurrentToken.id_name;
+    CurrentToken = Lex.GetToken();
+    auto node = ParseAssignmentStatement();
+    if (!node)
+        return nullptr;
+
+    auto declarationNode = new ASTDeclarationStatementNode(type, (ASTAssignmentStatementNode*)node);
+}
+
 ASTStatementNode * Parser::ParseAssignmentStatement()
 {
 	std::string var_name = CurrentToken.id_name;
 	CurrentToken = Lex.GetToken();
 	if (CurrentToken.token_type != Lexer::TOK_ASSIGNOP)
 	{
-		Error("Expecting ':=' while parsing an assignment statement");
+		Error("Expecting '=' while parsing an assignment statement");
 		return nullptr;
 	}
 	CurrentToken = Lex.GetToken();
@@ -215,6 +229,9 @@ ASTStatementNode * Parser::ParseStatement()
             break;
         case Lexer::TOK_ID:
             node = ParseAssignmentStatement();
+            break;
+        case Lexer::TOK_SRCLANG_TYPE:
+            node = ParseDeclarationStatement();
             break;
         default:
             break;
@@ -338,8 +355,21 @@ ASTNode * Parser::Parse()
                 break;
             }
 		    default: {
-                auto stmt = ParseExpression();
-                if (!stmt) CurrentToken = Lex.GetToken();
+                auto stmt = ParseStatement();
+                if (!stmt)
+                    CurrentToken = Lex.GetToken();
+				else
+                {
+                    if (CurrentToken.token_type == Lexer::TOK_STMT_DELIMITER) {
+                        main_impl->push_back(stmt);
+                        CurrentToken = Lex.GetToken();
+                    }
+                    else
+                    {
+                        std::cout << "[Parser] Missing ; after statement. Quitting. " << std::endl;
+                        return nullptr;
+                    }
+                }
                 break;
             }
 		}

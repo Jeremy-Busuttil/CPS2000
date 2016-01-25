@@ -28,9 +28,9 @@ public:
     virtual void visit(ASTFunctionNode* p_node);
     virtual void visit(ASTFuncPrototypeNode* p_node);
     virtual void visit(ASTAssignmentStatementNode* p_node);
+    virtual void visit(ASTDeclarationStatementNode* p_node);
     virtual void visit(ASTReturnStatementNode* p_node);
     virtual void visit(ASTProgramNode* p_node);
-
 };
 
 

@@ -24,7 +24,8 @@ int main() {
 	//Lexer * lex = new Lexer("./Resource/test.prog");
 	//Lexer * lex = new Lexer("./resources/simple_expr.prog");
     //Lexer * lex = new Lexer("./resources/simple_func_def.prog");
-    Lexer * lex = new Lexer("./resources/simple_funcs_def.prog");
+    //Lexer * lex = new Lexer("./resources/two_simple_func_def.prog");
+    Lexer * lex = new Lexer("./resources/simple_func_and_main_def.prog");
     cout << lex->ToString() << endl;
 
     /*Lexer::Token nxtToken = lex->GetToken();
@@ -35,8 +36,6 @@ int main() {
     }
     cout << nxtToken.ToString() << endl;
     */
-
-
 
     Parser * parser = new Parser(*lex);
 	auto rootNode = parser->Parse();

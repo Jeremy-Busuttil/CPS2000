@@ -263,7 +263,9 @@ Lexer::Token Lexer::GetToken() {
 
 		if (idStr.compare("int")==0)
 		{
-			return Lexer::Token(TOK_SRCLANG_TYPE);
+            Lexer::Token t(TOK_SRCLANG_TYPE);
+            t.id_name = "int";
+			return t;
 		}
 
 		if (idStr.compare("return")==0)

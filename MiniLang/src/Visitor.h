@@ -16,6 +16,7 @@ class ASTStatementNode;
 class ASTFunctionNode;
 class ASTFuncPrototypeNode;
 class ASTAssignmentStatementNode;
+class ASTDeclarationStatementNode;
 class ASTReturnStatementNode;
 class ASTProgramNode;
 
@@ -32,6 +33,7 @@ public:
     virtual void visit(ASTFuncPrototypeNode*) = 0;
     virtual void visit(ASTAssignmentStatementNode*) = 0;
     virtual void visit(ASTReturnStatementNode*) = 0;
+    virtual void visit(ASTProgramNode*) = 0;
 };
 
 #endif //CPS2000_MINILANG_VISITOR_H

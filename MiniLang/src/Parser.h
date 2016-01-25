@@ -22,6 +22,7 @@
 #include "ASTStatementNode.h"
 #include "ASTIfStatementNode.h"
 #include "ASTAssignmentStatementNode.h"
+#include "ASTDeclarationStatementNode.h"
 #include "ASTReturnStatementNode.h"
 
 //AST Function Nodes
@@ -59,6 +60,7 @@ private:
 	ASTStatementNode * ParseIfStatement();
 	ASTStatementNode * ParseAssignmentStatement();
 	ASTStatementNode * ParseReturnStatement();
+	ASTStatementNode * ParseDeclarationStatement();
 	ASTStatementNode * ParseStatement();
 
 };
