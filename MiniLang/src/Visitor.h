@@ -32,6 +32,7 @@ public:
     virtual void visit(ASTFunctionNode*) = 0;
     virtual void visit(ASTFuncPrototypeNode*) = 0;
     virtual void visit(ASTAssignmentStatementNode*) = 0;
+    virtual void visit(ASTDeclarationStatementNode*) = 0;
     virtual void visit(ASTReturnStatementNode*) = 0;
     virtual void visit(ASTProgramNode*) = 0;
 };

@@ -198,7 +198,7 @@ ASTStatementNode * Parser::ParseDeclarationStatement()
     if (!node)
         return nullptr;
 
-    auto declarationNode = new ASTDeclarationStatementNode(type, (ASTAssignmentStatementNode*)node);
+    return new ASTDeclarationStatementNode(type, (ASTAssignmentStatementNode*)node);
 }
 
 ASTStatementNode * Parser::ParseAssignmentStatement()

@@ -12,7 +12,7 @@ public:
     ASTStatementNode();
     virtual ~ASTStatementNode();
 
-    virtual void Accept(Visitor * v) = 0;
+    virtual void Accept(Visitor * v) { std::cout << "ASTStatementNode" << std::endl; };
     virtual void PrintInfo(int p_level) = 0;
 };
 

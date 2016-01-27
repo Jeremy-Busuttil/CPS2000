@@ -80,13 +80,23 @@ void PrintInfoVisitor::visit(ASTFuncPrototypeNode * p_node) {
 void PrintInfoVisitor::visit(ASTDeclarationStatementNode * p_node) {
     std::string tabs = "";
     for (int t = 0; t<Indent; t++) tabs.append("\t");
-    std::cout << tabs << "ASTDeclarationNode " << p_node->varType;
+    std::cout << tabs << "ASTDeclarationNode " << p_node->varType << std::endl;
+    Indent++;
+    p_node->RHS->Accept(this);
+    Indent--;
+
 }
 
 void PrintInfoVisitor::visit(ASTAssignmentStatementNode * p_node) {
     std::string tabs = "";
     for (int t = 0; t<Indent; t++) tabs.append("\t");
-    std::cout << tabs << "ASTAssignmentNode " << p_node->LHS;
+    std::cout << tabs << "ASTAssignmentNode " << std::endl;
+    Indent++;
+    tabs.clear();
+    for (int t = 0; t<Indent; t++) tabs.append("\t");
+    std::cout << tabs << p_node->LHS << std::endl;
+    p_node->RHS->Accept(this);
+    Indent--;
 }
 
 void PrintInfoVisitor::visit(ASTReturnStatementNode * p_node) {
@@ -104,7 +114,7 @@ void PrintInfoVisitor::visit(ASTProgramNode * p_node) {
     for (int i = 0; i < p_node->functions->size(); i++)
         p_node->functions->at(i)->Accept(this);
 
-    for (int i = 0; i<p_node->main_impl->size(); i++)
+    for (int i = 0; i < p_node->main_impl->size(); i++)
         p_node->main_impl->at(i)->Accept(this);
     Indent--;
 }
